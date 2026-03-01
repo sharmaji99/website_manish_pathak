@@ -3,16 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pandit Manish Pathak | Premium Vedic Ritual Services</title>
+    <title>Pandit Manish Pathak | Sacred Premium Spiritual Guidance</title>
     <meta
       name="description"
-      content="Pandit Manish Pathak offers trusted Baglamukhi, Mahakal, and Vedic rituals in Nalkheda and Ujjain with a premium spiritual guidance experience."
+      content="Premium Vedic rituals, spiritual consultations, and sacred events with Pandit Manish Pathak in Nalkheda and Ujjain."
     />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -25,217 +24,179 @@
               serif: ["Noto Serif Devanagari", "serif"],
             },
             colors: {
-              ivory: "#f8f4ee",
-              charcoal: "#202020",
-              sacred: "#7f1d1d",
-              sacredSoft: "#a4422f",
+              warm: "#f8f5ef",
+              ink: "#1f1a17",
+              accent: "#7b1e2b",
             },
             boxShadow: {
-              glow: "0 22px 50px -20px rgba(127, 29, 29, 0.35)",
-              soft: "0 10px 30px rgba(32,32,32,0.08)",
+              soft: "0 14px 38px rgba(24, 16, 9, 0.09)",
+              lift: "0 22px 50px rgba(123, 30, 43, 0.16)",
             },
           },
         },
       };
     </script>
-
     <link rel="stylesheet" href="css/theme.css" />
   </head>
-  <body class="bg-ivory text-charcoal antialiased">
-    <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-ivory/85 backdrop-blur-md">
-      <div class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <a href="#home" class="group flex items-center gap-3" aria-label="Pandit Manish Pathak">
-          <img
-            src="images/logo-pandit-manish-pathak.png"
-            alt="Pandit Manish Pathak Logo"
-            class="h-11 w-11 rounded-full border border-slate-300/70 object-cover"
-          />
+  <body class="bg-warm font-sans text-ink">
+    <a class="skip-link" href="#mainContent" data-i18n="skipToContent"></a>
+
+    <header class="site-header" id="top">
+      <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+        <a href="#top" class="flex items-center gap-3" aria-label="Pandit Manish Pathak home">
+          <img src="images/logo-pandit-manish-pathak.png" width="48" height="48" alt="Pandit Manish Pathak emblem" class="rounded-full border border-stone-300" loading="lazy" />
           <div>
-            <p class="font-serif text-base font-semibold leading-tight sm:text-lg" data-i18n="brandName"></p>
-            <p class="text-xs text-slate-600 sm:text-sm" data-i18n="brandRegion"></p>
+            <p class="font-serif text-base font-semibold sm:text-lg" data-i18n="brandName"></p>
+            <p class="text-xs text-stone-600" data-i18n="brandTag"></p>
           </div>
         </a>
 
-        <button
-          id="menuBtn"
-          class="inline-flex rounded-full border border-slate-300 bg-white/80 p-2 text-slate-700 transition hover:border-sacred hover:text-sacred focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sacred/40 lg:hidden"
-          aria-label="Open menu"
-          aria-controls="mainNav"
-          aria-expanded="false"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+        <button id="menuBtn" class="icon-btn lg:hidden" aria-expanded="false" aria-controls="mainNav" aria-label="Open menu">
+          <span></span><span></span><span></span>
         </button>
 
-        <nav
-          id="mainNav"
-          class="absolute left-4 right-4 top-full hidden rounded-2xl border border-slate-200 bg-white/95 p-4 shadow-soft lg:static lg:flex lg:items-center lg:gap-6 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none"
-        >
-          <a href="#home" class="nav-link" data-i18n="navHome"></a>
+        <nav id="mainNav" class="nav-panel" aria-label="Primary navigation">
           <a href="#about" class="nav-link" data-i18n="navAbout"></a>
           <a href="#services" class="nav-link" data-i18n="navServices"></a>
           <a href="#events" class="nav-link" data-i18n="navEvents"></a>
+          <a href="navratri.html" class="nav-link" data-i18n="navNavratri"></a>
           <a href="#contact" class="nav-link" data-i18n="navContact"></a>
-
-          <div class="mt-4 flex items-center gap-2 lg:mt-0 lg:ml-2">
-            <button id="langToggle" class="premium-btn-outline px-4 py-2 text-sm" type="button" aria-live="polite"></button>
-            <a href="tel:+919926757320" class="premium-btn px-4 py-2 text-sm" data-i18n="callNow"></a>
-          </div>
+          <button id="langToggle" class="btn-outline" type="button" aria-live="polite"></button>
+          <a href="tel:+919926757320" class="btn-primary" data-i18n="callNow"></a>
         </nav>
       </div>
     </header>
 
-    <main>
-      <section id="home" class="relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-white/50 via-ivory to-ivory"></div>
-        <div class="relative mx-auto grid w-full max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8 lg:py-20">
+    <main id="mainContent">
+      <section class="section-hero" id="home">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="images/hero-sanctum-poster.jpg" aria-label="Temple lamps and incense glowing softly">
+          <source src="images/hero-sanctum-loop.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-24">
           <div class="reveal space-y-6">
-            <p class="inline-flex rounded-full border border-sacred/20 bg-sacred/5 px-4 py-1.5 text-xs font-semibold tracking-wide text-sacred sm:text-sm" data-i18n="heroTag"></p>
-            <h1 class="font-serif text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl" data-i18n="heroTitle"></h1>
-            <p class="max-w-xl text-sm leading-relaxed text-slate-700 sm:text-base" data-i18n="heroSubtitle"></p>
-
-            <div class="flex flex-wrap items-center gap-3">
-              <a href="https://wa.me/919926757320" class="premium-btn px-6 py-3" data-i18n="whatsappCta"></a>
-              <a href="#contact" class="premium-btn-outline px-6 py-3" data-i18n="consultationCta"></a>
-            </div>
-
-            <ul class="grid grid-cols-1 gap-3 text-sm sm:grid-cols-3">
-              <li class="rounded-xl border border-slate-200 bg-white/75 px-4 py-3 shadow-soft">
-                <p class="font-semibold text-sacred">15+</p>
-                <p data-i18n="heroMetricOne"></p>
-              </li>
-              <li class="rounded-xl border border-slate-200 bg-white/75 px-4 py-3 shadow-soft">
-                <p class="font-semibold text-sacred">1000+</p>
-                <p data-i18n="heroMetricTwo"></p>
-              </li>
-              <li class="rounded-xl border border-slate-200 bg-white/75 px-4 py-3 shadow-soft">
-                <p class="font-semibold text-sacred">24x7</p>
-                <p data-i18n="heroMetricThree"></p>
-              </li>
-            </ul>
-          </div>
-
-          <div class="reveal reveal-delay relative">
-            <div class="glass-card p-6 sm:p-8">
-              <div class="space-y-4 rounded-2xl border border-white/40 bg-white/50 p-5 shadow-glow sm:p-6">
-                <p class="font-serif text-2xl font-semibold text-sacred" data-i18n="heroCardTitle"></p>
-                <p class="text-sm leading-relaxed text-slate-700" data-i18n="heroCardBody"></p>
-                <div class="h-px bg-gradient-to-r from-sacred/40 to-transparent"></div>
-                <p class="text-sm font-medium" data-i18n="heroCardTrust"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" class="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-        <div class="reveal mx-auto max-w-3xl text-center">
-          <p class="section-kicker" data-i18n="aboutKicker"></p>
-          <h2 class="section-title" data-i18n="aboutTitle"></h2>
-          <p class="section-copy" data-i18n="aboutText"></p>
-        </div>
-      </section>
-
-      <section id="services" class="bg-white/60 py-14 lg:py-20">
-        <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="reveal mb-8 text-center">
-            <p class="section-kicker" data-i18n="serviceKicker"></p>
-            <h2 class="section-title" data-i18n="serviceTitle"></h2>
-          </div>
-
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <article class="service-card reveal" data-service="1"><h3 data-i18n="service1"></h3></article>
-            <article class="service-card reveal" data-service="2"><h3 data-i18n="service2"></h3></article>
-            <article class="service-card reveal" data-service="3"><h3 data-i18n="service3"></h3></article>
-            <article class="service-card reveal" data-service="4"><h3 data-i18n="service4"></h3></article>
-            <article class="service-card reveal hidden-service" data-service="5"><h3 data-i18n="service5"></h3></article>
-            <article class="service-card reveal hidden-service" data-service="6"><h3 data-i18n="service6"></h3></article>
-            <article class="service-card reveal hidden-service" data-service="7"><h3 data-i18n="service7"></h3></article>
-            <article class="service-card reveal hidden-service" data-service="8"><h3 data-i18n="service8"></h3></article>
-          </div>
-
-          <div class="mt-8 flex justify-center">
-            <button id="toggleServices" class="premium-btn-outline px-6 py-3" type="button"></button>
-          </div>
-        </div>
-      </section>
-
-      <section class="mx-auto w-full max-w-5xl px-4 py-14 text-center sm:px-6 lg:py-20">
-        <blockquote class="reveal rounded-3xl border border-sacred/20 bg-white/70 px-6 py-10 shadow-soft sm:px-10">
-          <p class="font-serif text-2xl leading-relaxed text-sacred sm:text-3xl" data-i18n="mantra"></p>
-          <footer class="mt-4 text-sm text-slate-600" data-i18n="mantraSource"></footer>
-        </blockquote>
-      </section>
-
-      <section id="events" class="bg-white/60 py-14 lg:py-20">
-        <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="reveal mb-8 text-center">
-            <p class="section-kicker" data-i18n="eventsKicker"></p>
-            <h2 class="section-title" data-i18n="eventsTitle"></h2>
-          </div>
-          <div class="grid gap-5 md:grid-cols-3">
-            <article class="media-card reveal">
-              <h3 data-i18n="event1Title"></h3>
-              <p data-i18n="event1Desc"></p>
-            </article>
-            <article class="media-card reveal reveal-delay">
-              <h3 data-i18n="event2Title"></h3>
-              <p data-i18n="event2Desc"></p>
-            </article>
-            <article class="media-card reveal reveal-delay-2">
-              <h3 data-i18n="event3Title"></h3>
-              <p data-i18n="event3Desc"></p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-        <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <div class="reveal space-y-4">
-            <p class="section-kicker" data-i18n="contactKicker"></p>
-            <h2 class="section-title text-left" data-i18n="contactTitle"></h2>
-            <p class="section-copy text-left" data-i18n="contactCopy"></p>
-
+            <p class="eyebrow" data-i18n="heroEyebrow"></p>
+            <h1 class="font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl" data-i18n="heroTitle"></h1>
+            <p class="max-w-xl text-sm leading-relaxed text-stone-700 sm:text-base" data-i18n="heroText"></p>
             <div class="flex flex-wrap gap-3">
-              <a href="https://wa.me/919926757320" class="premium-btn px-5 py-2.5" data-i18n="whatsapp"></a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" class="premium-btn-outline px-5 py-2.5" data-i18n="instagram"></a>
-              <a href="https://youtube.com" target="_blank" rel="noreferrer" class="premium-btn-outline px-5 py-2.5" data-i18n="youtube"></a>
+              <a href="https://wa.me/919926757320" class="btn-primary" data-i18n="heroCta"></a>
+              <a href="#services" class="btn-outline" data-i18n="heroSecondary"></a>
+            </div>
+          </div>
+          <article class="glass-card reveal reveal-delay">
+            <h2 class="font-serif text-2xl" data-i18n="heroCardTitle"></h2>
+            <p class="mt-3 text-sm leading-relaxed text-stone-700" data-i18n="heroCardText"></p>
+            <ul class="mt-5 grid grid-cols-3 gap-2 text-center text-xs sm:text-sm">
+              <li class="metric"><strong>15+</strong><span data-i18n="metricOne"></span></li>
+              <li class="metric"><strong>1000+</strong><span data-i18n="metricTwo"></span></li>
+              <li class="metric"><strong>24x7</strong><span data-i18n="metricThree"></span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="about" class="section-pad">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid gap-10 lg:grid-cols-2">
+            <div class="reveal">
+              <p class="eyebrow" data-i18n="aboutEyebrow"></p>
+              <h2 class="section-title" data-i18n="aboutTitle"></h2>
+              <p class="section-copy" data-i18n="aboutText"></p>
+            </div>
+            <figure class="reveal reveal-delay">
+              <img src="images/about-guru-portrait.jpg" alt="Pandit Manish Pathak seated near sacred scriptures in a calm prayer hall" loading="lazy" class="media-card" />
+              <figcaption class="caption" data-i18n="aboutCaption"></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section-pad section-soft">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p class="eyebrow text-center" data-i18n="servicesEyebrow"></p>
+          <h2 class="section-title text-center" data-i18n="servicesTitle"></h2>
+          <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" id="serviceGrid">
+            <article class="service-card reveal"><h3 data-i18n="service1"></h3></article>
+            <article class="service-card reveal"><h3 data-i18n="service2"></h3></article>
+            <article class="service-card reveal"><h3 data-i18n="service3"></h3></article>
+            <article class="service-card reveal"><h3 data-i18n="service4"></h3></article>
+            <article class="service-card reveal hidden-service"><h3 data-i18n="service5"></h3></article>
+            <article class="service-card reveal hidden-service"><h3 data-i18n="service6"></h3></article>
+            <article class="service-card reveal hidden-service"><h3 data-i18n="service7"></h3></article>
+            <article class="service-card reveal hidden-service"><h3 data-i18n="service8"></h3></article>
+          </div>
+          <div class="mt-6 text-center">
+            <button id="toggleServices" class="btn-outline" type="button" aria-expanded="false"></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad mantra-block reveal" aria-label="Mantra quote">
+        <blockquote class="mx-auto max-w-4xl px-4 text-center font-serif text-2xl leading-relaxed sm:text-3xl" data-i18n="mantra"></blockquote>
+        <p class="mt-4 text-center text-sm tracking-wide text-stone-600" data-i18n="mantraSource"></p>
+      </section>
+
+      <section id="events" class="section-pad">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p class="eyebrow text-center" data-i18n="eventsEyebrow"></p>
+          <h2 class="section-title text-center" data-i18n="eventsTitle"></h2>
+          <div class="mt-8 grid gap-6 lg:grid-cols-3">
+            <article class="event-card reveal">
+              <img src="images/event-navratri-lamps.jpg" alt="Rows of sacred lamps illuminating Navratri altar" loading="lazy" class="event-image" />
+              <h3 data-i18n="event1Title"></h3><p data-i18n="event1Text"></p>
+            </article>
+            <article class="event-card reveal reveal-delay">
+              <img src="images/event-rudrabhishek-ujjain.jpg" alt="Rudrabhishek ritual with flowing water and bilva leaves" loading="lazy" class="event-image" />
+              <h3 data-i18n="event2Title"></h3><p data-i18n="event2Text"></p>
+            </article>
+            <article class="event-card reveal">
+              <img src="images/event-online-satsang.jpg" alt="Online satsang setup with scripture and warm ambient lighting" loading="lazy" class="event-image" />
+              <h3 data-i18n="event3Title"></h3><p data-i18n="event3Text"></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section-pad section-soft">
+        <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <div class="reveal">
+            <p class="eyebrow" data-i18n="contactEyebrow"></p>
+            <h2 class="section-title" data-i18n="contactTitle"></h2>
+            <p class="section-copy" data-i18n="contactText"></p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="https://wa.me/919926757320" class="social-pill" data-i18n="socialWhatsapp"></a>
+              <a href="https://instagram.com" class="social-pill" data-i18n="socialInstagram"></a>
+              <a href="https://youtube.com" class="social-pill" data-i18n="socialYoutube"></a>
             </div>
           </div>
 
-          <form class="reveal reveal-delay rounded-3xl border border-slate-200 bg-white/80 p-5 shadow-soft sm:p-6" novalidate>
-            <div class="space-y-4">
-              <label class="block text-sm font-medium" for="name" data-i18n="formName"></label>
-              <input id="name" type="text" class="form-input" data-i18n-placeholder="formNamePlaceholder" />
+          <form id="contactForm" class="contact-card reveal reveal-delay" novalidate>
+            <label for="name" data-i18n="formName"></label>
+            <input id="name" name="name" type="text" required data-i18n-placeholder="formNamePlaceholder" />
+            <small class="error" id="errorName"></small>
 
-              <label class="block text-sm font-medium" for="phone" data-i18n="formPhone"></label>
-              <input id="phone" type="tel" class="form-input" data-i18n-placeholder="formPhonePlaceholder" />
+            <label for="phone" data-i18n="formPhone"></label>
+            <input id="phone" name="phone" type="tel" required data-i18n-placeholder="formPhonePlaceholder" />
+            <small class="error" id="errorPhone"></small>
 
-              <label class="block text-sm font-medium" for="message" data-i18n="formMessage"></label>
-              <textarea id="message" rows="4" class="form-input" data-i18n-placeholder="formMessagePlaceholder"></textarea>
+            <label for="message" data-i18n="formMessage"></label>
+            <textarea id="message" name="message" rows="4" required data-i18n-placeholder="formMessagePlaceholder"></textarea>
+            <small class="error" id="errorMessage"></small>
 
-              <button type="button" class="premium-btn w-full justify-center px-6 py-3" data-i18n="formSubmit"></button>
-            </div>
+            <button type="submit" class="btn-primary mt-2" data-i18n="formSubmit"></button>
+            <p id="formStatus" role="status" aria-live="polite" class="text-sm"></p>
           </form>
         </div>
       </section>
     </main>
 
-    <footer class="border-t border-slate-200 bg-white/80">
-      <div class="mx-auto grid w-full max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[1fr_auto] lg:px-8">
-        <div>
-          <p class="font-serif text-lg font-semibold" data-i18n="brandName"></p>
-          <p class="mt-1 text-sm text-slate-600" data-i18n="footerTagline"></p>
-        </div>
-        <div class="text-sm text-slate-600 lg:text-right">
-          <p>+91 99267 57320</p>
-          <p data-i18n="footerRegion"></p>
-        </div>
+    <footer class="border-t border-stone-300/70 bg-white/70">
+      <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-sm text-stone-700 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+        <p data-i18n="footerLine"></p>
+        <p data-i18n="footerRegion"></p>
       </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
   </body>
 </html>

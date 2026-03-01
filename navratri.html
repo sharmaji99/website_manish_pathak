@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navratri Sadhana | Pandit Manish Pathak</title>
+    <meta name="description" content="Join the Navratri Sadhana journey with guided rituals, daily sankalp, and sacred blessings." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { warm: "#f8f5ef", ink: "#1f1a17", accent: "#7b1e2b" },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="css/theme.css" />
+  </head>
+  <body class="bg-warm font-sans text-ink">
+    <header class="site-header">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <a href="index.html" class="nav-link" data-i18n="backHome"></a>
+        <div class="flex items-center gap-2">
+          <button id="langToggle" class="btn-outline" type="button" aria-live="polite"></button>
+          <a href="tel:+919926757320" class="btn-primary" data-i18n="callNow"></a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section-hero section-pad">
+        <div class="hero-overlay"></div>
+        <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <div class="reveal">
+            <p class="eyebrow" data-i18n="navratriEyebrow"></p>
+            <h1 class="font-serif text-3xl leading-tight sm:text-4xl" data-i18n="navratriTitle"></h1>
+            <p class="mt-4 text-stone-700" data-i18n="navratriText"></p>
+            <a href="https://wa.me/919926757320" class="btn-primary mt-5 inline-flex" data-i18n="navratriCta"></a>
+          </div>
+          <figure class="reveal reveal-delay">
+            <img src="images/navratri-durga-altar.jpg" class="media-card" loading="lazy" alt="Decorated Durga altar with marigold, diya and incense" />
+            <figcaption class="caption" data-i18n="navratriCaption"></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section-pad">
+        <div class="mx-auto max-w-5xl px-4 sm:px-6">
+          <h2 class="section-title text-center" data-i18n="navratriScheduleTitle"></h2>
+          <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="event-card reveal"><h3 data-i18n="day1"></h3><p data-i18n="day1Text"></p></article>
+            <article class="event-card reveal"><h3 data-i18n="day2"></h3><p data-i18n="day2Text"></p></article>
+            <article class="event-card reveal"><h3 data-i18n="day3"></h3><p data-i18n="day3Text"></p></article>
+            <article class="event-card reveal"><h3 data-i18n="day4"></h3><p data-i18n="day4Text"></p></article>
+            <article class="event-card reveal"><h3 data-i18n="day5"></h3><p data-i18n="day5Text"></p></article>
+            <article class="event-card reveal"><h3 data-i18n="day6"></h3><p data-i18n="day6Text"></p></article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-stone-300/70 bg-white/70">
+      <div class="mx-auto max-w-7xl px-4 py-6 text-sm text-stone-700 sm:px-6 lg:px-8">
+        <p data-i18n="footerLine"></p>
+      </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+  </body>
+</html>

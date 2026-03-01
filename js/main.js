@@ -252,6 +252,13 @@ function setupServicesToggle() {
 
 function setupRevealAnimations() {
   const revealEls = qsa(".reveal");
+
+  revealEls.forEach((el, index) => {
+    if (!el.classList.contains("reveal-delay")) {
+      el.style.setProperty("--reveal-delay", `${Math.min(index * 40, 220)}ms`);
+    }
+  });
+
   if (!("IntersectionObserver" in window)) {
     revealEls.forEach((el) => el.classList.add("in-view"));
     return;
@@ -266,7 +273,7 @@ function setupRevealAnimations() {
         }
       });
     },
-    { threshold: 0.14 }
+    { threshold: 0.16, rootMargin: "0px 0px -6% 0px" }
   );
 
   revealEls.forEach((el) => observer.observe(el));

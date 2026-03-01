@@ -1,76 +1,94 @@
-# MilesWeb Shared Hosting: Minimal PHP + MySQL Backend Plan
+# Contact Form Backend Integration (PHP + MySQL)
 
-## 1) Consultant-style explanation
+## 1) Backend flow (short)
 
-This project is mostly static, so the database should be used only for data that must persist and be reviewed later (for example, contact form enquiries).
+1. The existing frontend form (`#contactForm`) keeps its current UI, IDs, classes, and client-side validation unchanged.
+2. On valid submit, frontend sends POST data (`name`, `phone`, `message`) to `backend/contact-submit.php`.
+3. `backend/contact-submit.php` forwards the request to `backend/submit-consultation.php`.
+4. `backend/submit-consultation.php` performs server-side validation and inserts data using a prepared statement into MySQL.
+5. API returns JSON success/error response for the existing frontend status message handling.
 
-A practical production-safe approach on MilesWeb shared hosting is:
+## 2) SQL table creation script
 
-- Keep frontend static (`index.html`, `css`, `js`) for fast loading and simple maintenance.
-- Add a very small PHP backend only for form submission.
-- Store only required fields in MySQL.
-- Use prepared statements for every SQL query.
-- Keep DB credentials in server-side PHP files only (never in JS).
-- Use phpMyAdmin for setup/ops tasks (create table, backup, restore), not for day-to-day form submission logic.
+```sql
+CREATE TABLE IF NOT EXISTS consultations (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(120) NOT NULL,
+    mobile_number VARCHAR(20) NOT NULL,
+    requirement TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_mobile_number (mobile_number),
+    INDEX idx_created_at (created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+```
 
-This gives long-term stability with low hosting complexity and no unnecessary overengineering.
+(also available in `sql/contact_submissions.sql`)
 
-## 2) Database usage decision table
+## 3) PHP database connection (`config/db.php`)
 
-| Scenario | Use Database? | Reason |
-|---|---|---|
-| Hero, About, Services static text | No | Content is static and can stay in HTML/JS translation objects. |
-| Contact form submissions | Yes | User enquiries require persistence, follow-up, and audit trail. |
-| WhatsApp/phone CTA buttons | No | Direct links do not require persistence in DB. |
-| Temporary UI state (menu open/lang toggle) | No | Browser state only; keep in JS/localStorage. |
-| Admin reporting on leads | Yes (read-only queries) | Requires stored historical records. |
+```php
+<?php
 
-## 3) Minimal schema
+declare(strict_types=1);
 
-Only one table is required now:
+const DB_HOST = 'localhost';
+const DB_PORT = 3306;
+const DB_NAME = 'your_database_name';
+const DB_USER = 'your_database_user';
+const DB_PASS = 'your_database_password';
 
-- `contact_submissions`: stores enquiries from the contact form.
+function getDbConnection(): PDO
+{
+    static $pdo = null;
 
-Schema file: `sql/contact_submissions.sql`.
+    if ($pdo instanceof PDO) {
+        return $pdo;
+    }
 
-## 4) PHP backend examples
+    $dsn = sprintf('mysql:host=%s;port=%d;dbname=%s;charset=utf8mb4', DB_HOST, DB_PORT, DB_NAME);
 
-- `backend/config.php`: central config constants (DB, app environment, limits).
-- `backend/db.php`: PDO connection factory + JSON helper + CORS helper.
-- `backend/contact-submit.php`: validates input, rate-limits by phone, inserts via prepared statement.
+    $pdo = new PDO($dsn, DB_USER, DB_PASS, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES => false,
+    ]);
 
-## 5) Frontend integration notes
+    return $pdo;
+}
+```
 
-- Submit form as JSON with `fetch` to `backend/contact-submit.php`.
-- Keep frontend validation for UX.
-- Always re-validate server-side before insert (do not trust browser input).
-- Treat backend response as source of truth for success/failure.
+## 4) PHP form handler (`backend/submit-consultation.php`)
 
-## 6) Backup, import, export, and security operations
+- Accepts POST (JSON or form-encoded)
+- Validates full name, mobile number, requirement
+- Uses prepared statements for SQL injection protection
+- Returns safe JSON messages
+- Logs server-side errors without exposing credentials
 
-### Backup (phpMyAdmin)
-1. Open phpMyAdmin → select database.
-2. Click **Export**.
-3. Use **Custom** method for routine backups.
-4. Include table structure + data.
-5. Download `.sql` backup and store off-host (cloud + local encrypted copy).
+## 5) Integration notes (what goes where)
 
-### Restore / Import
-1. Open target database in phpMyAdmin.
-2. Click **Import**.
-3. Upload `.sql` backup.
-4. Verify table counts and app form submission endpoint after import.
+- `config/db.php` → shared DB credentials + PDO connection
+- `sql/contact_submissions.sql` → import via phpMyAdmin to create table
+- `backend/submit-consultation.php` → main backend endpoint
+- `backend/contact-submit.php` → compatibility route used by existing JS fetch
 
-### Least privilege
-- Use one DB user for app runtime with only: `SELECT`, `INSERT` on required table.
-- Avoid broad permissions (`DROP`, `ALTER`, `GRANT`) for runtime user.
-- Keep privileged operations only in phpMyAdmin/admin user.
+### Existing form submission path (no UI redesign)
 
-### Error handling and production safety
-- Show generic errors to users.
-- Log real errors with `error_log` in PHP.
-- Keep `APP_ENV='production'` on live server.
-- Use HTTPS-only website and backend endpoint.
+Your existing frontend already submits to:
 
-### Data retention recommendation
-- Keep contact leads for a fixed business window (for example 12-18 months), then archive/delete old rows.
+```js
+fetch("backend/contact-submit.php", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "X-Requested-With": "XMLHttpRequest",
+  },
+  body: JSON.stringify({
+    name: name.value.trim(),
+    phone: phone.value.trim(),
+    message: message.value.trim(),
+  }),
+});
+```
+
+No label/text/layout/class/id changes are required.

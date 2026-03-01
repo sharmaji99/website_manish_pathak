@@ -317,10 +317,34 @@ function setupFormValidation() {
       valid = false;
     }
 
-    if (valid) {
-      status.textContent = dict.formSuccess;
-      form.reset();
-    }
+    if (!valid) return;
+
+    status.textContent = "";
+
+    fetch("backend/contact-submit.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+      },
+      body: JSON.stringify({
+        name: name.value.trim(),
+        phone: phone.value.trim(),
+        message: message.value.trim(),
+      }),
+    })
+      .then(async (response) => {
+        const result = await response.json().catch(() => ({ ok: false }));
+        if (!response.ok || !result.ok) {
+          throw new Error(result.message || "Submission failed");
+        }
+
+        status.textContent = dict.formSuccess;
+        form.reset();
+      })
+      .catch(() => {
+        status.textContent = dict.errMessage;
+      });
   });
 }
 
